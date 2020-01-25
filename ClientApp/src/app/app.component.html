@@ -1,28 +1,26 @@
 <div class="container-fluid">
   <h1>NYC Taxi Fare Calculator</h1>
-  <form #userForm="ngForm">
-
-    {{ userForm.value | json }}
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
 
     <br />
     <div class="form-group">
       <label> Number of minutes traveling above 6 mph </label>
-      <input type="text" class="form-control" name="minutesFasterThan6MPH" ngModel/>
+      <input type="number" class="form-control" name="minutesFasterThan6MPH" [ngModel]="FareModel.minutes"/>
     </div>
 
     <div class="form-group">
-      <label> Number of minutes traveling below 6 mph </label>
-      <input type="text" class="form-control" name="minutesSlowerThan6MPH" ngModel/>
+      <label> Number of miles traveling below 6 mph </label>
+      <input type="number" class="form-control" name="milesSlowerThan6MPH" [ngModel]="FareModel.miles"/>
     </div>
 
     <div class="form-group">
       <label> Date of Ride </label>
-      <input type="date" class="form-control" name="date" ngModel/>
+      <input type="date" class="form-control" name="date" [ngModel]="FareModel.date"/>
     </div>
 
     <div class="form-group">
       <label> Time of Ride </label>
-      <input type="time" class="form-control" name="time" ngModel/>
+      <input type="time" class="form-control" name="time" [ngModel]="FareModel.time"/>
     </div>
 
   </form>
@@ -30,4 +28,4 @@
 </div>
 
 
-<button class="btn-primary btn-primary">Calculate</button>
+<button class="btn-primary btn-primary" type="submit">Calculate</button>
